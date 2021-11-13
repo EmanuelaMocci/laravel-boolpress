@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,19 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Rotte pubbliche
+Route::get('/', 'PageController@index');
 
+// Rotte Autenticazione
 Auth::routes();
 
-Route::middleware('auth')
-    ->namespace('Admin')
-    ->name('admin.')
-    ->prefix('admin')
-    ->group(function () {
-        Route::get('/', 'HomeController@index')
-        ->name('home');
+// Rotte area admin
+Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->group(function () {
+    
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('posts', 'PostController');
     });
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');

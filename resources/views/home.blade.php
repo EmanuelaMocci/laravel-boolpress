@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -14,10 +14,15 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <ul>
+                        <li>
+                            <a href="{{route('admin.home')}}">Visualizza tutti i post</a>
+                        </li>
+                    </ul>
+                    
                 </div>
             </div>
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}
