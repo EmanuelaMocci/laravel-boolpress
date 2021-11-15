@@ -16,7 +16,7 @@
 
                     <ul>
                         <li>
-                            <a href="{{route('admin.home')}}">Visualizza tutti i post</a>
+                            <a href="{{route('admin.posts.index')}}">Visualizza tutti i post</a>
                         </li>
                     </ul>
                     
