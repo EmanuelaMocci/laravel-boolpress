@@ -6,8 +6,8 @@
             <h1 class="blog-post-title">{{$post['title']}}</h1>
             <p class="blog-post-meta">{{ $post->created_at->format('d-m-Y') }} <a href="#">Jacob</a></p>
             <p>{{$post['content']}}</p>
-
-        </div><!-- /.blog-main -->
+        </div>
+        <!-- /.blog-main -->
 
         <aside class="col-md-4 blog-sidebar">
             <div class="p-3 mb-3 bg-light rounded">
