@@ -24,17 +24,20 @@
                             <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="content" cols="30" rows="10" placeholder="Inserisci il contenuto"></textarea>
                             @error('content')
                             <div class="alert alert-danger">{{ $message }}</div>
-                          @enderror
+                            @enderror
                         </div>
 
                         <div class="form-group">
                             <label for="category">Categoria</label>
-                            <select name="category_id" class="form-control">
+                            <select name="category_id" class="form-control @error('category_id') is-invalid @enderror">
                                 <option value="category">-- Seleziona la categoria --</option>
                                @foreach ($categories as $category)
-                                   <option value="{{$category["id"]}}">{{$category["name"]}}</option>
+                                   <option {{ old("category_id") == $category["id"] ? 'selected' : null }} value="{{$category["id"]}}">{{$category["name"]}}</option>
                                @endforeach
                             </select>
+                            @error('category_id')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         
                         <button type="submit" class="btn btn-primary">Crea</button>
