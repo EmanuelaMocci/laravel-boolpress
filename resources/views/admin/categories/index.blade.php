@@ -38,7 +38,7 @@
                                     <a href="{{route('admin.categories.edit', $category['id'])}}">
                                         <button type="button" class="btn btn-warning">Modifica</button>
                                     </a>
-                                    <form action="{{route("admin.categories.destroy", $category["id"])}}" method="category">
+                                    <form action="{{route("admin.categories.destroy", $category["id"])}}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Elimina</button>
