@@ -27,7 +27,7 @@
                           @enderror
                         </div>
 
-                        {{-- <div class="form-group">
+                        <div class="form-group">
                             <label for="category">Categoria</label>
                             <select name="category_id" class="form-control @error('category_id') is-invalid @enderror">
                                 <option value="category">-- Seleziona la categoria --</option>
@@ -38,7 +38,17 @@
                             @error('category_id')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
-                        </div> --}}
+                        </div>
+
+                        <div class="form-group">
+                            <p>Tags</p>
+                            @foreach ($tags as $tag)
+                                <div class="custom-control custom-checkbox">
+                                    <input {{$post["tags"]->contains($tag['id']) ? "checked" : null}} name="tags[]" value="{{$tag['id']}}" type="checkbox" class="custom-control-input" id="tag-{{$tag['id']}}">
+                                    <label class="custom-control-label" for="tag-{{$tag['id']}}">{{$tag['name']}}</label>
+                                </div>
+                            @endforeach
+                        </div>
                         
                         <button type="submit" class="btn btn-primary">Salva</button>
                     </form>

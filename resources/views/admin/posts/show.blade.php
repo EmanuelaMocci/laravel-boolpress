@@ -9,7 +9,16 @@
 
                 <div class="card-body">
                     <h1>{{$post['title']}}</h1>
-                    <h4>Categoria: {{$post["category"]["name"]}}</h4>
+                    @if ($post["category"])
+                      <h4>Categoria: {{$post["category"]["name"]}}</h4>  
+                    @endif
+ 
+                    @if (count($post['tags']) > 0)
+                        <h3>Tags:</h3>
+                        @foreach ($post['tags'] as $tag)
+                            <span class="badge rounded-pill bg-primary">{{$tag['name']}}</span>
+                        @endforeach
+                    @endif
                     <p>{{$post['content']}}</p>
                 </div>
             </div>
