@@ -9,6 +9,7 @@
 
                 <div class="card-body">
                     <h1>{{$post['title']}}</h1>
+                    <h4>Categoria: {{$post["category"]["name"]}}</h4>
                     <p>{{$post['content']}}</p>
                 </div>
             </div>
